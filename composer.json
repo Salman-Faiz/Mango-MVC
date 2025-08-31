@@ -1,0 +1,10 @@
+{
+    "name": "salman/mango",
+    "authors": [
+        {
+            "name": "Salman-Faiz",
+            "email": "salmanfaiz.cse@gmail.com"
+        }
+    ],
+    "require": {}
+}

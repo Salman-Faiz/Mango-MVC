@@ -17,7 +17,7 @@ $request = explode('?', $request)[0]; // Remove query string remain in the  inde
 echo "<br>";
 echo "Request URI: ";
 echo $request;
-if(isset($routes[$request])){
+if (isset($routes[$request])) {
      echo "Route found";
      echo "<br>";
      // print_r($routes[$request]);
@@ -25,15 +25,17 @@ if(isset($routes[$request])){
      $methodName = $routes[$request][1] ?? null;
 
      if ($controllerName && $methodName) {
-         // Instantiate the controller
-         $controller = new $controllerName();
+          // Instantiate the controller
+          $controller = new $controllerName();
 
-         // Call the method
-         if (method_exists($controller, $methodName)) {
-             $controller->$methodName();
-         } else {
-             echo "Method not found";
-         }
+          // Call the method
+          if (method_exists($controller, $methodName)) {
+               $controller->$methodName();
+          } else {
+               echo "Method not found";
+          }
      }
+}else {
+     // echo "Route not found";
+     throw new \Exception("Route not found", 404);
 }
-?>
